@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"></link>
+      {% load static %}
+    <link rel="stylesheet" href="{% static 'login_reg/css/style.css' %}">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center rounded headline">Quotes</h1>
+      {% if messages %}
+        <div class="messages alert alert-danger text-center">
+          {% for message in messages %}
+          <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="row">
+        <div class="col-5">
+          <h1 class="display-4" style="letter-spacing: 15px;">Sign Up!</h1>
+
+          <form action="/register" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="">Name*</label>
+              <input type="text" class="form-control" name="name" placeholder="name">
+            </div>
+            <div class="form-group">
+              <label for="">Alias*</label>
+              <input type="text" class="form-control" name="alias" placeholder="alias">
+            </div>
+            <div class="form-group">
+              <label for="">Email*</label>
+              <input type="text" class="form-control" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+              <label for="">Password* (must be at least 8 characters long)</label>
+              <input type="password" class="form-control" name="password" placeholder="password">
+            </div>
+            <div class="form-group">
+              <label for="">Confirm Password*</label>
+              <input type="password" class="form-control" name="confirm_password" placeholder="confirm password">
+            </div>
+            <div class="form-group">
+              <label for="">Date of Birth*</label>
+              <input type="date" class="form-control" name="dob" placeholder="date of birth">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary btn-lg btn-block" value="Register">
+            </div>
+          </form>
+        </div>
+
+        <div class="col-5 ml-auto">
+          <h1 class="display-4" style="letter-spacing: 15px;">Login</h1>
+          <form action="/login" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="">email</label>
+                <input type="email" class="form-control" name="email" placeholder="email"></input>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="password"></input>
+              </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Login">
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+</html>

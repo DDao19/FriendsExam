@@ -1,0 +1,11 @@
+body{
+  background-size: cover;
+  font-family: 'Dosis', sans-serif;
+}
+.headline{
+  background: #33b5e5;
+  margin-top: 1%;
+  margin-bottom: 5%;
+  font-size: 45px;
+  letter-spacing: 15px;
+}
